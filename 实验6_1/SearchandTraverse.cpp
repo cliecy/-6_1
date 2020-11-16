@@ -2,15 +2,15 @@
 
 Status BTraverse(BiTree& T) {
 
-    if (*T->data.name != " ") {
+    if (T) {
 
         cout << T->data.name << endl;
 
-        if (*T->lchild->data.name != " " ) {
+        if (T->lchild ) {
             BTraverse(T->lchild);
         }
 
-        if (*T->lchild->data.name != " ") {
+        if (T->rchild) {
             BTraverse(T->rchild);
         }
     }
@@ -22,15 +22,15 @@ Status BTraverse(BiTree& T) {
 
 Status MTraverse(BiTree& T) {
 
-    if (*T->data.name != " ") {
+    if (T) {
 
-        if (*T->lchild->data.name != " ") {
+        if (T->lchild) {
             MTraverse(T->lchild);
         }
 
         cout << T->data.name << endl;
         
-        if (*T->lchild->data.name != " ") {
+        if (T->rchild) {
             MTraverse(T->rchild);
         }
     }
@@ -43,13 +43,13 @@ Status MTraverse(BiTree& T) {
 
 Status ATraverse(BiTree& T) {
 
-    if (*T->data.name != " ") {
+    if (T) {
         
-        if (*T->lchild->data.name != " ") {
+        if (T->lchild) {
             ATraverse(T->lchild);
         }
 
-        if (*T->lchild->data.name != " ") {
+        if (T->rchild) {
             ATraverse(T->rchild);
         }
 
@@ -80,11 +80,11 @@ Status SearchBody(BiTree &T,string e,BiTNode &p) {
         return OK;
     }
 
-    if (*T->lchild->data.name != " ") {
+    if (T->lchild) {
             SearchBody(T->lchild,e,p);
     }
 
-    if (*T->lchild->data.name != " ") {
+    if (T->rchild) {
             SearchBody(T->rchild,e,p);
     }
 
