@@ -10,9 +10,9 @@ Status MTraverse(BiTree& T);
 
 Status ATraverse(BiTree& T);
 
-Status Search(BiTree& T, string e);
+BiTNode Search(BiTree& T, string e);
 
-BiTNode SearchBody(BiTree& T,string e,BiTNode &p);
+Status SearchBody(BiTree& T,string e,BiTNode &p);
 
 
 
