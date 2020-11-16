@@ -21,12 +21,18 @@
     <ClCompile Include="storage.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="SearchandTraverse.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="storage.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchandTraverse.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
