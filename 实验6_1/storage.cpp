@@ -8,7 +8,6 @@ Status CreateBiTree(BiTree& T) { // 按照相许次序输入创建二叉树
 	getline(cin, name, '#');
 	getline(cin, sex, '#');
 	getline(cin, age, '#');
-
 	if (name == " ")
 		T = NULL;
 	else {
@@ -39,12 +38,14 @@ TElemType CreatTElem()
 }
 Status InsertBitree(BiTree& T, TElemType father, TElemType mother ,string b)  //在相应孩子插入其双亲
 {
-	BiTNode j, F, M;
+	BiTNode *j, *F, *M;
+	F = new BiTNode;
+	M = new BiTNode;
 	j = Search(T, b);//找到插入的位置//根据你写的search
-	j.lchild = &F; F.data = father;//插入父亲
-	j.rchild = &M; M.data = mother;//插入母亲
-	F.lchild = F.rchild = NULL;
-	M.lchild = M.rchild = NULL;
+	j->lchild = F; F->data = father;//插入父亲
+	j->rchild = M; M->data = mother;//插入母亲
+	F->lchild = F->rchild = NULL;
+	M->lchild = M->rchild = NULL;
 	return OK;
 }
 /*BiTNode k;
@@ -52,11 +53,11 @@ k = Search(T, string x);*/
 Status DeleteNode(BiTree& T, BiTNode k)
 {
 	if (!k.lchild && !k.rchild)
-		free(&k);//若为叶子节点，则直接删除
+		delete(&k);//若为叶子节点，则直接删除
 	else       //若其有孩子节点，则需先删除孩子节点，再删除该节点
 	{
-		DeleteNode(T, *k.lchild);
-		DeleteNode(T, *k.rchild);
+		if(!k.lchild )DeleteNode(T, *k.lchild);
+		if (!k.rchild)DeleteNode(T, *k.rchild);
 		DeleteNode(T, k);
 	}
 	return OK;

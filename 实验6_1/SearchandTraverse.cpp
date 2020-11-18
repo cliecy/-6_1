@@ -64,19 +64,27 @@ Status ATraverse(BiTree& T) {
 }
 
 
-BiTNode Search(BiTree& T, string e) {
-    BiTNode pre;
+BiTNode* Search(BiTree& T, string e) {
+    BiTNode *pre;
+    pre = new BiTNode;
     SearchBody(T, e, pre);
     return pre;
 }
 
-Status SearchBody(BiTree &T,string e,BiTNode &p) {
+Status SearchBody(BiTree &T,string e,BiTNode *p) {
 
 
 
     if (T->data.name == e) {
-        cout << e + "的父亲是" + T->lchild->data.name + "母亲是" + T->rchild->data.name;
-        p = *T;
+        string a, b;
+        if (T->lchild) { a = T->lchild->data.name; }
+        else { a = "未存入"; }
+        if (T->rchild) { b = T->rchild->data.name; }
+        else { b = "未存入"; }
+
+        
+        cout << e + "父亲名字是" + a + "母亲名字是" + b << endl;
+        p = T;
         return OK;
     }
 

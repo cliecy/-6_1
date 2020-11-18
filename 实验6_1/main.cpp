@@ -21,6 +21,11 @@ int main() {
 			break;
 		}
 	}
+	MTraverse(T);
+	Search(T, "hahaha");
+
+
+
 	TElemType father, mother;
 	string b, x;
 	father = CreatTElem();
@@ -28,8 +33,8 @@ int main() {
 	getline(cin, b);
 	getline(cin, x);
 	InsertBitree(T, father, mother, b);
-	BiTNode k;
+	BiTNode *k;
 	k = Search(T, x);
-	DeleteNode(T, k);
+	DeleteNode(T, *k);
 	return 0;
 }
