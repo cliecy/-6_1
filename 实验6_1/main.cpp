@@ -1,5 +1,5 @@
 #include "storage.h"
-
+#include"SearchandTraverse.h"
 int main() {
 	BiTree T;
 
@@ -21,6 +21,15 @@ int main() {
 			break;
 		}
 	}
-
+	TElemType father, mother;
+	string b, x;
+	father = CreatTElem();
+	mother = CreatTElem();
+	getline(cin, b);
+	getline(cin, x);
+	InsertBitree(T, father, mother, b);
+	BiTNode k;
+	k = Search(T, x);
+	DeleteNode(T, k);
 	return 0;
 }

@@ -13,15 +13,15 @@
 using namespace std;
 
 struct TElemType { // ¶þ²æÊ÷ÔªËØ
-	string* name;
-	string* sex;
-	string* age;
+	string name;
+	string sex;
+	string age;
 };
 
 typedef struct BiTNode {
 	TElemType data;
 	struct BiTNode* lchild, * rchild; // ×ó¸¸  ÓÒÄ¸
-}BiTNode, *BiTree;
+}BiTNode, * BiTree;
 
 
 #endif // ! HEAD_H

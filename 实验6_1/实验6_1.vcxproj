@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="InsertandDelete.cpp" />
     <ClCompile Include="SearchandTraverse.cpp" />
     <ClCompile Include="storage.cpp" />
     <ClCompile Include="main.cpp" />

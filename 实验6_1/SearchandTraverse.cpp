@@ -74,8 +74,8 @@ Status SearchBody(BiTree &T,string e,BiTNode &p) {
 
 
 
-    if (*T->data.name == e) {
-        cout << e + "的父亲是" + *T->lchild->data.name + "母亲是" + *T->rchild->data.name;
+    if (T->data.name == e) {
+        cout << e + "的父亲是" + T->lchild->data.name + "母亲是" + T->rchild->data.name;
         p = *T;
         return OK;
     }

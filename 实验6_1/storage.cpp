@@ -1,31 +1,66 @@
 #include "storage.h"
-
-Status CreateBiTree(BiTree& T){ // 按照先许次序输入创建二叉树
-	cout << "请按照先序输入结点信息：姓名、性别、年龄，每输入一个数据请换行（空结点请用三个空格+换行表示）" << endl;
+#include"SearchandTraverse.h"
+Status CreateBiTree(BiTree& T) { // 按照相许次序输入创建二叉树
+	cout << "请按照先序输入结点信息：姓名、性别、年龄，请在每个数据后加上#，如(A#man#10#),空结点请用空格代替数据" << endl;
 	string wast;
 	string name, sex, age;
-	getline(cin, wast);//getline(cin,...)是一种获取整行输入的函数
-	getline(cin, name,'#');
-	cout << name << endl;
-	getline(cin, sex,'#');
-	cout << sex << endl;
-	getline(cin, age,'#');
-	cout << age << endl;
+	getline(cin, wast);
+	getline(cin, name, '#');
+	getline(cin, sex, '#');
+	getline(cin, age, '#');
 
 	if (name == " ")
 		T = NULL;
 	else {
-		if(!(T = (BiTree)malloc(sizeof(BiTNode))))
+		if (!(T = new BiTNode))
 			return ERROR;
-		T->data.name = &name; // 生成根节点
-		T->data.sex = &sex;
-		T->data.age = &age;
+		T->data.name = name;
+		T->data.sex = sex;
+		T->data.age = age;
 		CreateBiTree(T->lchild); // 构造左子树
 		CreateBiTree(T->rchild); // 构造右子树
 	}
 	return OK;
 }
 
+
+
+TElemType CreatTElem()
+{
+	TElemType x;
+	string name, sex, age;
+	getline(cin, name, '#');
+	//cout << name << endl;
+	getline(cin, sex, '#');
+	//cout << sex << endl;
+	getline(cin, age, '#');
+	x.name = name; x.sex = sex; x.age = age;
+	return x;
+}
+Status InsertBitree(BiTree& T, TElemType father, TElemType mother ,string b)  //在相应孩子插入其双亲
+{
+	BiTNode j, F, M;
+	j = Search(T, b);//找到插入的位置//根据你写的search
+	j.lchild = &F; F.data = father;//插入父亲
+	j.rchild = &M; M.data = mother;//插入母亲
+	F.lchild = F.rchild = NULL;
+	M.lchild = M.rchild = NULL;
+	return OK;
+}
+/*BiTNode k;
+k = Search(T, string x);*/
+Status DeleteNode(BiTree& T, BiTNode k)
+{
+	if (!k.lchild && !k.rchild)
+		free(&k);//若为叶子节点，则直接删除
+	else       //若其有孩子节点，则需先删除孩子节点，再删除该节点
+	{
+		DeleteNode(T, *k.lchild);
+		DeleteNode(T, *k.rchild);
+		DeleteNode(T, k);
+	}
+	return OK;
+}
 
 
 /*
