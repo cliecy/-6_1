@@ -67,11 +67,11 @@ Status ATraverse(BiTree& T) {
 BiTNode* Search(BiTree& T, string e) {
     BiTNode *pre;
     pre = new BiTNode;
-    SearchBody(T, e, pre);
+    SearchBody(T, e, &pre);
     return pre;
 }
 
-Status SearchBody(BiTree &T,string e,BiTNode *p) {
+Status SearchBody(BiTree &T,string e,BiTNode **p) {
 
 
 
@@ -84,7 +84,7 @@ Status SearchBody(BiTree &T,string e,BiTNode *p) {
 
         
         cout << e + "父亲名字是" + a + "母亲名字是" + b << endl;
-        p = T;
+        *p = T;
         return OK;
     }
 

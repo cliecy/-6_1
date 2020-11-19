@@ -12,7 +12,7 @@ Status ATraverse(BiTree& T);
 
 BiTNode* Search(BiTree& T, string e);
 
-Status SearchBody(BiTree& T,string e,BiTNode *p);
+Status SearchBody(BiTree& T,string e,BiTNode **p);
 
 
 
